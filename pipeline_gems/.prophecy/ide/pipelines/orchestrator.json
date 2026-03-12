@@ -1,0 +1,85 @@
+{
+  "id" : "orchestrator",
+  "metainfo" : {
+    "label" : "orchestrator",
+    "autoLayout" : false,
+    "version" : 1,
+    "configuration" : {
+      "schema" : {
+        "type" : "record",
+        "fields" : [ ]
+      }
+    },
+    "isTranspiledPipeline" : false,
+    "publishDiagnosticMetrics" : false
+  },
+  "processes" : {
+    "lX1VPNDsi2eu7IXJvoIMd$$AtFGuNkxFJcjh5TopyZt7" : {
+      "id" : "lX1VPNDsi2eu7IXJvoIMd$$AtFGuNkxFJcjh5TopyZt7",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "Pipeline_0",
+        "x" : -560,
+        "y" : -280,
+        "phase" : 0,
+        "comment" : "Runs the pipeline 'a' up to 10,000 times for continuous data processing.",
+        "autoUpdateComment" : true
+      },
+      "properties" : {
+        "maxTriggers" : 10000,
+        "triggerCondition" : "Always",
+        "enableMaxTriggers" : true,
+        "pipelineName" : "a",
+        "parameterSet" : "default",
+        "parameters" : { }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "kNCL0LQbED6Z2xTdNat5b$$ZZwEC8ud-cbZggsbt87Dm",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "8dy_lHSnn7KJLMgHn1d6o$$WGX5o5u0fQ6oPPLqGcIUq",
+          "slug" : "out0"
+        } ]
+      }
+    },
+    "W0oF33KZvicDaMqhHGTnK$$4215QFobwSIaJ_RuDOLsm" : {
+      "id" : "W0oF33KZvicDaMqhHGTnK$$4215QFobwSIaJ_RuDOLsm",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "trigger_pipeline_b",
+        "x" : -360,
+        "y" : -280,
+        "phase" : 0
+      },
+      "properties" : {
+        "maxTriggers" : 10000,
+        "triggerCondition" : "AllSuccess",
+        "enableMaxTriggers" : false,
+        "pipelineName" : "b",
+        "parameterSet" : "default",
+        "parameters" : { }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "yv6j05zLMHiAVv-uu8b4v$$Cu71vlweVlJlSKRrf2km3",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "1n4hQ7gBCzy_T_JhF7xkS$$ZnNRyf1uXYoRzjrLkw73U",
+          "slug" : "out0"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "5EFQMXfT--JD_WRSu-Rmx$$J6sTtFN3r1aYHuHfc9NMT",
+    "source" : "lX1VPNDsi2eu7IXJvoIMd$$AtFGuNkxFJcjh5TopyZt7",
+    "sourcePort" : "8dy_lHSnn7KJLMgHn1d6o$$WGX5o5u0fQ6oPPLqGcIUq",
+    "target" : "W0oF33KZvicDaMqhHGTnK$$4215QFobwSIaJ_RuDOLsm",
+    "targetPort" : "yv6j05zLMHiAVv-uu8b4v$$Cu71vlweVlJlSKRrf2km3"
+  } ],
+  "component" : "Pipeline"
+}

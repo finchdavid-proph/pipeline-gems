@@ -1,0 +1,183 @@
+{
+  "id" : "b__customer_orders_left_join",
+  "metainfo" : {
+    "label" : "b__customer_orders_left_join",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "entityConfig" : {
+        "materialized" : "ephemeral",
+        "database" : "\"prophecy-field\"",
+        "schema" : "\"nadeesh_demos\"",
+        "type" : "ModelConfig"
+      }
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "customer_orders_left_join_on0yRVABWC__xEfrU1ZBN$$XbuChpToa0gzXmPAXHXE7" : {
+      "id" : "customer_orders_left_join_on0yRVABWC__xEfrU1ZBN$$XbuChpToa0gzXmPAXHXE7",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "customer_orders_left_join"
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM customer_orders_left_join\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "input_port_0",
+          "slug" : "input_port_0"
+        } ],
+        "outputs" : [ {
+          "id" : "output_port_0",
+          "slug" : "output_port_0"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "rBkE4f0yJpPYBwo8QMH0t$$uEwt9ghU9n0JD_o0lgW4v" : {
+      "id" : "rBkE4f0yJpPYBwo8QMH0t$$uEwt9ghU9n0JD_o0lgW4v",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "customer_orders_left_join",
+        "x" : 20,
+        "y" : -180,
+        "phase" : 0
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "in1",
+          "expression" : {
+            "expression" : "in1.customer_id = in0.customer_id"
+          },
+          "joinType" : "left"
+        } ],
+        "expressions" : [ {
+          "alias" : "customer_id",
+          "expression" : {
+            "expression" : "in1.customer_id"
+          },
+          "_row_id" : "J77k2cftp4"
+        }, {
+          "alias" : "order_id",
+          "expression" : {
+            "expression" : "in1.order_id"
+          },
+          "_row_id" : "9_ACRts6Mn"
+        } ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ "jocirdPiAiHZypLMdSKJL$$qpZsMT9zyg_T675khTel7##customer_id", "RBmPdVavwBqXlqzlFtfJD$$qyE76e2C8cjR7HewAcTBp##customer_id", "jocirdPiAiHZypLMdSKJL$$qpZsMT9zyg_T675khTel7##customer_id", "jocirdPiAiHZypLMdSKJL$$qpZsMT9zyg_T675khTel7##order_id" ],
+        "headAlias" : "in0"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "RBmPdVavwBqXlqzlFtfJD$$qyE76e2C8cjR7HewAcTBp",
+          "slug" : "in0"
+        }, {
+          "id" : "jocirdPiAiHZypLMdSKJL$$qpZsMT9zyg_T675khTel7",
+          "slug" : "in1"
+        } ],
+        "outputs" : [ {
+          "id" : "on0yRVABWC__xEfrU1ZBN$$XbuChpToa0gzXmPAXHXE7",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "Ju0ioGSuRKRjgPyIsdt1F$$Od-Jn1zIIsH4sgYhAAQxc" : {
+      "id" : "Ju0ioGSuRKRjgPyIsdt1F$$Od-Jn1zIIsH4sgYhAAQxc",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "orders",
+        "x" : -120,
+        "y" : -100,
+        "phase" : 0
+      },
+      "properties" : {
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        },
+        "table" : {
+          "name" : "orders",
+          "sourceName" : "prophecy_field_abhinav_demos",
+          "sourceType" : "Table"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "syFqkuFtThfaYwx4-TdqC$$Qv_o_xd7Kfwy80hMG8hM4",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "Nk5xdlGEqLUB7IVk1n7c1$$z2ZUnUNLvWQ4hSABbfVuA" : {
+      "id" : "Nk5xdlGEqLUB7IVk1n7c1$$z2ZUnUNLvWQ4hSABbfVuA",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "customers",
+        "x" : -120,
+        "y" : -240,
+        "phase" : 0
+      },
+      "properties" : {
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        },
+        "table" : {
+          "name" : "customers",
+          "sourceName" : "prophecy_field_abhinav_demos",
+          "sourceType" : "Table"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "M6B1DddkLdSWFWgwEc2vJ$$ya6XQcVRFxZkCCJPTgrkr",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "conn_rBkE4f0yJpPYBwo8QMH0t$$uEwt9ghU9n0JD_o0lgW4v_on0yRVABWC__xEfrU1ZBN$$XbuChpToa0gzXmPAXHXE7_customer_orders_left_join_on0yRVABWC__xEfrU1ZBN$$XbuChpToa0gzXmPAXHXE7",
+    "source" : "rBkE4f0yJpPYBwo8QMH0t$$uEwt9ghU9n0JD_o0lgW4v",
+    "sourcePort" : "on0yRVABWC__xEfrU1ZBN$$XbuChpToa0gzXmPAXHXE7",
+    "target" : "customer_orders_left_join_on0yRVABWC__xEfrU1ZBN$$XbuChpToa0gzXmPAXHXE7",
+    "targetPort" : "input_port_0",
+    "isWireless" : false
+  }, {
+    "id" : "us-6cSMgeKYuflH4XRO-X",
+    "source" : "Ju0ioGSuRKRjgPyIsdt1F$$Od-Jn1zIIsH4sgYhAAQxc",
+    "sourcePort" : "syFqkuFtThfaYwx4-TdqC$$Qv_o_xd7Kfwy80hMG8hM4",
+    "target" : "rBkE4f0yJpPYBwo8QMH0t$$uEwt9ghU9n0JD_o0lgW4v",
+    "targetPort" : "jocirdPiAiHZypLMdSKJL$$qpZsMT9zyg_T675khTel7",
+    "isWireless" : false
+  }, {
+    "id" : "bPDa2ZJNSzawNIRPwVRA3",
+    "source" : "Nk5xdlGEqLUB7IVk1n7c1$$z2ZUnUNLvWQ4hSABbfVuA",
+    "sourcePort" : "M6B1DddkLdSWFWgwEc2vJ$$ya6XQcVRFxZkCCJPTgrkr",
+    "target" : "rBkE4f0yJpPYBwo8QMH0t$$uEwt9ghU9n0JD_o0lgW4v",
+    "targetPort" : "RBmPdVavwBqXlqzlFtfJD$$qyE76e2C8cjR7HewAcTBp",
+    "isWireless" : false
+  } ],
+  "component" : "Model"
+}

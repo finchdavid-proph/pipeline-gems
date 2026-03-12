@@ -1,0 +1,9 @@
+{
+  "id" : "orchestrator_analysis",
+  "metainfo" : {
+    "description" : "",
+    "pipelineId" : "orchestrator",
+    "parameterSet" : ""
+  },
+  "instances" : { }
+}

@@ -1,0 +1,197 @@
+name: pipeline_gems
+description: ''
+version: 0.0.1
+author: finch.david@prophecy.io
+language: sql
+buildSystem: ''
+buildSystemDetails: null
+pipelines: {}
+datasets: {}
+templates: {}
+jobs: {}
+gemContainer:
+  languageVersion: ''
+  gemLibsVersion: ''
+  gems: {}
+  dependencies: null
+functions:
+  author: null
+  createdAt: '2026-03-12 01:56:58'
+  udfs: {}
+  udafs: {}
+  expressions: {}
+  airflowFunctions: {}
+  businessRules: {}
+subgraphs: {}
+sqlModels: {}
+sqlSnapshots: {}
+sqlTests: {}
+sqlMacros:
+  .prophecy/metadata/sqlmacros/generate_schema_name:
+    name: generate_schema_name
+    macroType: expression
+    description: null
+    author: finch.david@prophecy.io
+    files:
+    - macros/generate_schema_name.sql
+    - .prophecy/ide/macros/generate_schema_name.json
+    createdAt: '2026-03-12 01:57:00'
+  .prophecy/metadata/sqlmacros/prophecy_tmp_source:
+    name: prophecy_tmp_source
+    macroType: expression
+    description: null
+    author: finch.david@prophecy.io
+    files:
+    - macros/prophecy_tmp_source.sql
+    - .prophecy/ide/macros/prophecy_tmp_source.json
+    createdAt: '2026-03-12 01:57:17'
+sqlSeeds: {}
+sqlSources:
+  .prophecy/metadata/sqlsources/prophecy_field_abhinav_demos:
+    name: prophecy_field_abhinav_demos
+    description: null
+    author: finch.david@prophecy.io
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2026-03-12 01:59:06'
+    tables:
+    - name: customers
+      schema:
+        entityType: ''
+        providerType: bigquery
+        fields:
+        - name: customer_id
+          dataType:
+            type: Integer
+        - name: first_name
+          dataType:
+            type: String
+        - name: last_name
+          dataType:
+            type: String
+        - name: phone
+          dataType:
+            type: String
+        - name: email
+          dataType:
+            type: String
+        - name: country_code
+          dataType:
+            type: String
+        - name: account_open_date
+          dataType:
+            type: Date
+        - name: account_flags
+          dataType:
+            type: String
+      description: null
+      author: finch.david@prophecy.io
+      createdAt: '2026-03-12 01:59:06'
+      tableType: table
+    - name: orders
+      schema:
+        entityType: ''
+        providerType: bigquery
+        fields:
+        - name: order_id
+          dataType:
+            type: Integer
+        - name: customer_id
+          dataType:
+            type: Integer
+        - name: order_status
+          dataType:
+            type: String
+        - name: order_category
+          dataType:
+            type: String
+        - name: order_date
+          dataType:
+            type: Date
+        - name: amount
+          dataType:
+            type: Float
+      description: null
+      author: finch.david@prophecy.io
+      createdAt: '2026-03-12 01:59:41'
+      tableType: table
+sqlUnreferencedSources: {}
+sqlPipeline:
+  name: sqlPipeline
+  description: null
+  author: finch.david@prophecy.io
+  createdAt: '2026-03-12 01:56:58'
+dependencies: []
+projectDependencies:
+  '78064':
+    projectUID: 78064
+    projectName: prophecy_basics
+    repositoryPath: gitUri=https://github.com/prophecy-io/prophecy-basics&subPath=
+    version: 1.0.7
+    isDefault: true
+    author: null
+    createdAt: '2026-03-12 01:56:57'
+flags:
+  shouldAddDefaultDependenciesIfAbsent: false
+pipelineConfigurations: {}
+projectConfigurations: {}
+sqlOrchestratorPipelines:
+  .prophecy/metadata/sqlorchestratorpipeline/a:
+    name: a
+    schema: null
+    description: null
+    author: finch.david@prophecy.io
+    files:
+    - .prophecy/ide/pipelines/a.json
+    - pipelines/a.py
+    - models/a/schema.yml
+    - models/a/a__customer_orders_left_join.sql
+    createdAt: '2026-03-12 01:57:17'
+  .prophecy/metadata/sqlorchestratorpipeline/b:
+    name: b
+    schema: null
+    description: null
+    author: finch.david@prophecy.io
+    files:
+    - pipelines/b.py
+    - .prophecy/ide/pipelines/b.json
+    - models/b/b__customer_orders_left_join.sql
+    - models/b/schema.yml
+    createdAt: '2026-03-12 01:57:23'
+  .prophecy/metadata/sqlorchestratorpipeline/orchestrator:
+    name: orchestrator
+    schema: null
+    description: null
+    author: finch.david@prophecy.io
+    files:
+    - pipelines/orchestrator.py
+    - .prophecy/ide/pipelines/orchestrator.json
+    createdAt: '2026-03-12 01:57:38'
+sqlBusinessApps:
+  .prophecy/metadata/sqlbusinessapp/a_analysis:
+    name: a_analysis
+    schema: null
+    description: null
+    author: finch.david@prophecy.io
+    files:
+    - apps/a_analysis.json
+    createdAt: '2026-03-12 01:57:17'
+    sqlOrchestrationPipelineName: a
+  .prophecy/metadata/sqlbusinessapp/b_analysis:
+    name: b_analysis
+    schema: null
+    description: null
+    author: finch.david@prophecy.io
+    files:
+    - apps/b_analysis.json
+    createdAt: '2026-03-12 01:57:24'
+    sqlOrchestrationPipelineName: b
+  .prophecy/metadata/sqlbusinessapp/orchestrator_analysis:
+    name: orchestrator_analysis
+    schema: null
+    description: null
+    author: finch.david@prophecy.io
+    files:
+    - apps/orchestrator_analysis.json
+    createdAt: '2026-03-12 01:57:39'
+    sqlOrchestrationPipelineName: orchestrator

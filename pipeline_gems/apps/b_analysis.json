@@ -1,0 +1,9 @@
+{
+  "id" : "b_analysis",
+  "metainfo" : {
+    "description" : "",
+    "pipelineId" : "b",
+    "parameterSet" : ""
+  },
+  "instances" : { }
+}
