@@ -10,6 +10,20 @@
         "fields" : [ ]
       }
     },
+    "schedules" : [ {
+      "name" : "pipeline-schedule",
+      "scheduleType" : "cron",
+      "cron" : "* 0 2 * * * *",
+      "timeZone" : "America/New_York",
+      "emailOnSuccess" : false,
+      "emailOnFailure" : false,
+      "emailOnStart" : false,
+      "emails" : [ ],
+      "enabled" : true,
+      "runGenericDataTests" : false,
+      "triggers" : { },
+      "pipelineParameterSet" : "default"
+    } ],
     "isTranspiledPipeline" : false,
     "publishDiagnosticMetrics" : false
   },

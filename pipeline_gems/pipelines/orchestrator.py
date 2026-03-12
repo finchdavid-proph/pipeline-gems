@@ -1,6 +1,7 @@
 from prophecy_pipeline_sdk.graph import *
 from prophecy_pipeline_sdk.properties import *
-args = PipelineArgs(label = "orchestrator", version = 1, auto_layout = False)
+Schedules = [Schedule(Name = "pipeline-schedule", cron = "* 0 2 * * * *", timezone = "America/New_York")]
+args = PipelineArgs(label = "orchestrator", version = 1, auto_layout = False, schedules = Schedules)
 
 with Pipeline(args) as pipeline:
     pipeline_0 = Process(
